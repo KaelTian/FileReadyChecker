@@ -8,7 +8,7 @@ using Serilog;
 // 1. 配置 Serilog 日志
 // --------------------------
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
+    .MinimumLevel.Information()
     .Enrich.FromLogContext()
     .WriteTo.Console(
         outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}"
@@ -26,8 +26,8 @@ try
     // 2. 测试配置（可按需修改）
     // --------------------------
     string testFolder = @"\\192.168.0.209\sharedfolder-test"; // 你的共享文件夹
-    int minFileCount = 20; // 最小生成文件数
-    int maxFileCount = 60; // 最大生成文件数
+    int minFileCount = 30; // 最小生成文件数 可适当增大数量级
+    int maxFileCount = 60; // 最大生成文件数 可适当增大数量级
     int simulateWriteDelayMs = 50; // 每个文件生成延迟（模拟真实写入）
     int loopCount = 10; // 循环测试次数（默认10次，可改20次）
 
